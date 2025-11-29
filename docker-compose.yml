@@ -1,0 +1,12 @@
+version: "3.9"
+
+services:
+  sortyourmusic:
+    build: .
+    container_name: sortyourmusic
+    ports:
+      - "9000:9000"
+    volumes:
+      # 將本機 feature 資料夾掛載進 container
+      - ./static/database/feature:/app/static/database/feature
+    restart: unless-stopped
