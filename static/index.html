@@ -1,0 +1,1282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link type="text/css" href="styles.css?v1" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.13.1/datatables.min.css"/>
+    <link href="dist/sp-bootstrap.min.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+    <title>Sort Your Music</title>
+    <!-- Custom styles for this template -->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+  <body >
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="index.html">
+            <span class="navbar-logo"></span>
+            <span class="navbar-title">Sort Your Music</span>
+          </a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <a href="http://www.spotify.com" class="btn btn-primary navbar-btn navbar-right">Get
+          Spotify</a>
+        </div><!--/.navbar-collapse -->
+      </div>
+    </div>
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+      <div id='intro'>
+      <div id='main' class="top worker jumbotron jumbotron-hero container-fluid">
+          <div  id="jumbo-dialog">
+            <h1 id='ttitle' >Sort Your Music</h1>
+            <p id='ttext'>
+                Sort your Spotify playlists by any of 
+                a wide range of musical attributes such as tempo, loudness, 
+                valence, energy, danceability, popularity and more. Now with
+                <b>Filters</b>!
+            </p>
+            <p>  Login with your Spotify account to get started</p>
+            <p><a class="btn btn-primary btn-lg" id='go' role="button">Login with Spotify</a></p>
+          </div>
+      </div>
+
+        <div class="container worker ">
+          <div class="row features">
+             <div class="col-md-offset-2 col-md-8">
+                    <h2 class="text-center">Get your playlists in order</h2>
+                    <p>
+                    With <b> Sort Your Playlists </b> you can easily order the songs
+                    in any of your playlists be a wide range of parameters. Just
+                    follow these steps:
+                    </p>
+                    <ol>
+                        <li> <b> Login </b> with your Spotify credentials 
+                        <li> <b> Pick </b> your playlist
+                        <li> <b> Sort </b> the playlist by clicking on the column headings in
+                        the playlist table
+                        <li>  <b> Save </b> the sorted playlist to Spotify
+                    </ol>
+
+                    <h2 class="text-center">Tap into the power of Spotify's song attributes</h2>
+                    <p>
+                    <b> Sort Your Music </b> lets you sort your playlist
+                    based on a number of Spotify's song attributes including:
+                    </p>
+
+                    <ol>
+                        <li> <b> Beats Per Minute (BPM)</b> - The tempo of the
+                        song.
+                        <li> <b> Energy</b> - The energy of a song - the higher
+                        the value, the more energtic.
+                        song
+                        <li> <b> Danceability</b> - The higher the value, the
+                        easier it is to dance to this song.
+                        <li> <b> Loudness </b> - The higher the value, the
+                        louder the song.
+                        <li> <b> Valence </b> - The higher the value, the
+                        more positive mood for the song.
+                        <li> <b> Length </b> - The duration of the song.
+                        <li> <b> Acoustic </b> - The higher the value the more
+                        acoustic the song is.
+                        <li> <b> Popularity </b> - The higher the value the more
+                        popular the song is.
+                        <li> <b> A.Sep </b> - maximizes the artist separation in the set
+                        <li> <b> Rnd </b> - A randon number. Sort by this column to shuffle your playlist.
+                    </ol>
+
+                    <h2 class="text-center">FAQ</h2>
+                    <p>
+                        Here are some answers to questions about <b> Sort Your
+                        Music </b>
+                    </p>
+                    <ol>
+                        <li> <b> How was this built? </b> This was created using
+                        the <a
+                        href="http://developer.spotify.com">Spotify</a> API.
+
+                        <li> <b> Where can I learn more about the Spotify song
+                        attributes?</b> See <a
+                        href="https://developer.spotify.com/documentation/web-api/reference/#/operations/get-audio-analysis">
+                        Acoustic Attributes Overview </a>
+                        <li> <b> Can you add more attributes to the app?  </b>
+                        Yes, but it is a tradeoff between display space,
+                        complexity and utility. Let me know which attributes
+                        you'd like to see.
+                        <li> <b> Any more features planned?</b> - Yes, I'd like
+                        to add a few more features such as:
+                            <ul>
+                                <li> Duplicate track removal
+                                <li> Manual reordering, addition, and deletion.
+                            </ul>
+                        If you have any ideas for new feature, let me know.
+                        <li> <b> Is the source available</b> - Yes, you can find
+                        it on <a href="https://github.com/plamere/SortYourMusic">github</a>
+                        <li> <b> Does Sort Your Music overwrite my playlist when
+                            I save?</b> - 
+                            Only if you chose the 'Overwrite playlist option' otherwise
+                            it creates a copy of the playlist. The new
+                            playlist is called 'Old playlist name sorted by
+                            increasing X', where X is what you sorted the
+                            playlist on. 
+                    </ol>
+              </div> 
+          </div>
+        </div>
+
+      <div class="top jumbotron container-fluid">
+          <p id='info' class="text-center"></p>
+
+          <div class="worker" id='playlists'> 
+                <h2 class="prompt" > Pick a playlist: </h2>
+                <img class='spinner' width='100' alt='spinner' src='images/ajaxSpinner.gif'>
+
+                <div class="panel panel-default">
+                    <table id='playlist-list' class="table">
+                        <thead>
+                            <tr>
+                            <th> Cover </th>
+                            <th>Name</th>
+                            <th>Track Count</th>
+                            <th>Owner</th>
+                            </tr>
+                        </thead>
+                        <tbody> </tbody>
+                    </table>
+                </div>
+          </div>
+
+          <div class="worker" id='single-playlist'> 
+                <h2> <a id='playlist-title'></a> </h2>
+                <img class='spinner2' width='100' alt='spinner' src='images/ajaxSpinner.gif'>
+                <div id='single-playlist-contents'>
+
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+
+                            <div class='btn-group pull-right'>
+                              <button id='save' type='button' class='btn btn-primary btn-sm has-spinner'><i class="fa fa-spinner fa-spin"></i> Save New Playlist</button>
+                              <button id='saveDropdown' type='button' class='btn btn-primary btn-sm dropdown-toggle' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
+                                <span class='caret'></span>
+                                <span class='sr-only'>Toggle Dropdown</span>
+                              </button>
+                              <ul class='dropdown-menu'>
+                                <li><a id='dropSave' href='#'>Save New Playlist</a></li>
+                                <li><a id='dropOverwrite' href='#'>Overwrite Playlist</a></li>
+                              </ul>
+                            </div>
+
+                            <a class="btn btn-primary btn-sm pull-left" id='pick'
+                                role="button">back</a>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-default">
+                        <!-- <div class="panel-heading">Filter</div> -->
+                        <div class="panel-body">
+                            <div class="form-inline">
+                                <div class="form-group">
+                                    <label for="min-bpm">BPM Filter Minimum:</label>
+                                    <input id="min-bpm" type="number" class="form-control" placeholder="0">
+                                </div>
+                                <div class="form-group">
+                                    <label for="max-bpm">Maximum:</label>
+                                    <input id="max-bpm" type="number" class="form-control" placeholder="1000">
+                                </div>
+                                <div class="form-group">
+                                    <label for="include-double">Include doubled BPM</label>
+                                    <input id="include-double" type="checkbox" checked="checked">
+                                </div>
+                                 <!--
+                                 <button id="shuffle-button" class="pull-right btn btn-primary btn-sm">Shuffle</button> 
+                                 -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <table id='song-table' class="display stripe compact cell-border">  
+                        <thead>
+                            <tr>
+                                <th title="original track order"> # </th>
+                                <th title="the title of the track"> Title </th>
+                                <th title="the primary artist of the track"> Artist </th>
+                                <th title="date of release"> Release</th>
+                                <th title="the tempo, in beats-per-minute of the track"> BPM </th>
+                                <th title="the overall energy of the track"> Energy </th>
+                                <th title="the danceability of the track"> Dance </th>
+                                <th title="the loudness in dBs of the track"> Loud </th>
+                                <th title="how positive is the track"> Valence </th>
+                                <th title="the duration of the track"> Length </th>
+                                <th title="how acoustic is the track"> Acoustic </th>
+                                <th title="how popular is the track"> Pop. </th>
+                                <th title="maximizes artist separation"> A.Sep </th>
+                                <th title="a random value, suitable for generating a random shuffle"> Rnd </th>
+                            </tr>
+                        </thead>
+                        <tbody> </tbody>
+                        <tfoot> </tfoot>
+                    </table>
+                </div>
+          </div>
+        </div>
+    </div>
+
+    <div id="footer">
+      <div class="container text-center">
+            <p class="text-muted">
+                Powered by <a href="http://spotify.com">Spotify</a>
+                <!-- Created by <a href="http://twitter.com/plamere">@plamere</a>
+                with contributions by <a href="http://twitter.com/sonneveld">@sonneveld</a> -->
+                modified by JackViewLand.
+            </p>
+      </div>
+    </div>
+    <script src="lib/jquery-1.11.1.min.js"></script>
+ 
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.13.1/datatables.min.js"></script>
+
+    <!-- Deprecated: Replacement is the datetime plug-in (http://datatables.net/blog/2014-12-18) -->
+    <script type="text/javascript" charset="utf-8"
+        src="//cdn.datatables.net/plug-ins/1.10.7/sorting/time.js"></script>
+    <script src="lib/bootstrap.min.js"></script>
+    <script src="lib/underscore-min.js"></script>
+    <script type="text/javascript" charset="utf-8"
+        src="//cdnjs.cloudflare.com/ajax/libs/q.js/1.4.1/q.min.js"></script>
+    <script src="config.js?v2"></script>
+
+<script>
+"use strict";
+var accessToken = null;
+var curUserID = null;
+var curPlaylist = null;
+var albumDates = {};
+var audio = $("<audio>");
+var songTable;
+var cols = [
+    'order', 'title', 'artist', 'Date', 'BPM', 'energy',
+    'danceability', 'loudness', 'valence', 'duration',
+    'acousticness', 'popularity', 'artist separation', 'rnd'
+];
+
+// disable save while loading and saving, no matter what the saved state
+var forceDisableSave = false;
+
+// state of the saved playlist, so save button is only shown when different
+var savedState = {};
+
+// caches for audio features
+var featureCache = {};
+var featureCachePromise = {};
+var currentFeatureKey = null;
+
+function error(msg) {
+    info(msg);
+    if (msg != "") {
+        alert(msg);
+    }
+}
+
+function getCurSortName() {
+    let currentState = getPlaylistState();
+    let col = currentState.order[0];
+    if (directionMatters(col)) {
+        let prefix = (currentState.order[1] == 'asc') ? 'increasing ' : 'decreasing ';
+        return prefix + cols[col];
+    } else {
+        return cols[col];
+    }
+}
+
+function directionMatters(col) {
+    let cname = cols[col];
+    if (cname === "rnd" || cname === "artist separation") {
+        return false;
+    }
+    return true;
+}
+
+function info(msg) {
+    $("#info").text(msg);
+}
+
+// function authorizeUser() {
+//     var scopes = 'playlist-read-private playlist-modify-private playlist-modify-public';
+
+//     var url = 'https://accounts.spotify.com/authorize?client_id=' + SPOTIFY_CLIENT_ID +
+//         '&response_type=token' +
+//         '&scope=' + encodeURIComponent(scopes) +
+//         '&redirect_uri=' + encodeURIComponent(SPOTIFY_REDIRECT_URI);
+//     document.location = url;
+// }
+
+// 新版：Authorization Code + PKCE
+async function authorizeUser() {
+    // 1. scope 跟原本一樣
+    var scopes = 'playlist-read-private playlist-modify-private playlist-modify-public';
+
+    // 2. 產生 verifier + challenge
+    var pair = await createCodeVerifierAndChallenge();
+    var verifier = pair.verifier;
+    var challenge = pair.challenge;
+
+    // 3. 把 verifier 存起來，等等換 token 要用
+    window.localStorage.setItem('spotify_code_verifier', verifier);
+
+    // 4. 組合 /authorize 的網址（response_type 改成 code）
+    var params = new URLSearchParams({
+        client_id: SPOTIFY_CLIENT_ID,
+        response_type: 'code',
+        redirect_uri: SPOTIFY_REDIRECT_URI,
+        scope: scopes,
+        code_challenge_method: 'S256',
+        code_challenge: challenge
+    });
+
+    var url = 'https://accounts.spotify.com/authorize?' + params.toString();
+    document.location = url;
+}
+
+// 處理授權後 redirect 回來的情況
+async function handleSpotifyRedirect() {
+    var url = new URL(window.location.href);
+    var code = url.searchParams.get('code');
+    var error = url.searchParams.get('error');
+
+    // 如果有 error，就直接印出來方便 debug
+    if (error) {
+        console.error('Spotify auth error:', error);
+        return;
+    }
+
+    // 沒有 code 就代表不是從 Spotify 回來，直接跳過
+    if (!code) {
+        return;
+    }
+
+    var verifier = window.localStorage.getItem('spotify_code_verifier');
+    if (!verifier) {
+        console.error('Missing code verifier');
+        return;
+    }
+
+    // 準備 POST 給 /api/token 換 access_token
+    var body = new URLSearchParams({
+        client_id: SPOTIFY_CLIENT_ID,
+        grant_type: 'authorization_code',
+        code: code,
+        redirect_uri: SPOTIFY_REDIRECT_URI,
+        code_verifier: verifier
+    });
+
+    var response = await fetch('https://accounts.spotify.com/api/token', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: body.toString()
+    });
+
+    if (!response.ok) {
+        console.error('Token request failed', await response.text());
+        return;
+    }
+
+    var data = await response.json();
+    accessToken = data.access_token;
+
+    // 重要：把網址變成舊版 implicit flow 的樣子，讓原有程式照常運作
+    var newUrl = SPOTIFY_REDIRECT_URI + '#access_token=' + encodeURIComponent(accessToken);
+    window.location.replace(newUrl);
+}
+
+function parseArgs() {
+    var hash = location.hash.replace(/#/g, '');
+    var all = hash.split('&');
+    var args = {};
+    _.each(all, function(keyvalue) {
+        var kv = keyvalue.split('=');
+        var key = kv[0];
+        var val = kv[1];
+        args[key] = val;
+    });
+    return args;
+}
+
+function callSpotify(type, url, json, callback) {
+    $.ajax(url, {
+        type: type,
+        data: JSON.stringify(json),
+        dataType: 'json',
+        headers: {
+            'Authorization': 'Bearer ' + accessToken,
+            'Content-Type': 'application/json'
+        },
+        success: function(r) {
+            callback(true, r);
+        },
+        error: function(r) {
+            // 2XX status codes are good, but some have no
+            // response data which triggers the error handler
+            // convert it to goodness.
+            if (r.status >= 200 && r.status < 300) {
+                callback(true, r);
+            } else {
+                callback(false, r);
+            }
+        }
+    });
+}
+
+function callSpotifyQ(type, url, json) {
+    return Q.Promise(function(resolve, reject, notify) {
+        $.ajax(url, {
+            type: type,
+            data: JSON.stringify(json),
+            dataType: 'json',
+            headers: {
+                'Authorization': 'Bearer ' + accessToken,
+                'Content-Type': 'application/json'
+            },
+            beforeSend : function () {
+                console.log(type + ": " + this.url);
+            },
+            success: function(data) {
+                resolve(data);
+            },
+            error: function(jqXHR, textStatus) {
+                // 2XX status codes are good, but some have no
+                // response data which triggers the error handler
+                // convert it to goodness.
+                if (jqXHR.status >= 200 && jqXHR.status < 300) {
+                    resolve(undefined);
+                } else {
+                    reject(textStatus);
+                }
+            }
+        });  
+    });
+}
+
+function getSpotify(url, data, callback) {
+    $.ajax(url, {
+        dataType: 'json',
+        data: data,
+        headers: {
+            'Authorization': 'Bearer ' + accessToken
+        },
+        success: function(r) {
+            callback(r);
+        },
+        error: function(r) {
+            callback(null);
+        }
+    });
+}
+
+function getSpotifyQ(url, data) {
+    return Q.Promise(function(resolve, reject, notify) {
+        $.ajax(url, {
+            dataType: 'json',
+            data: data,
+            headers: {
+                'Authorization': 'Bearer ' + accessToken
+            },
+            beforeSend : function () {
+                // console.log("GET: " + this.url);
+            },
+            success: function(data) {
+                resolve(data);
+            },
+            error: function(jqXHR, textStatus) {
+                if (jqXHR.status >= 200 && jqXHR.status < 300) {
+                    resolve(undefined);
+                } else {
+                    reject(textStatus);
+                }
+            }
+        });
+    });
+}
+
+function showPlaylists() {
+    $(".worker").hide();
+    $("#playlists").show();
+}
+
+function loadFeaturesForCurrentPlaylist() {
+    if (!currentFeatureKey) return Q.resolve({});
+
+    if (featureCachePromise[currentFeatureKey]) {
+        return featureCachePromise[currentFeatureKey];
+    }
+
+    var url = 'database/feature/' + currentFeatureKey + '.json';
+
+    featureCachePromise[currentFeatureKey] = Q.Promise(function(resolve) {
+        $.getJSON(url)
+            .done(function(data) {
+                console.log("Loaded features:", currentFeatureKey, Object.keys(data).length);
+                featureCache[currentFeatureKey] = data;
+                resolve(data);
+            })
+            .fail(function() {
+                console.warn("載入失敗:", url, "使用空資料");
+                featureCache[currentFeatureKey] = {};
+                resolve({});
+            });
+    });
+
+    return featureCachePromise[currentFeatureKey];
+}
+
+function slugifyName(name) {
+    // 只把半形空格換成底線，其它字都保留
+    return name.replace(/[\u0020\u3000]/g, '_');
+}
+
+function fetchSinglePlaylist(playlist) {
+    currentFeatureKey = slugifyName(playlist.name);
+    $(".worker").hide();
+    $("#single-playlist").show();
+    $("#single-playlist-contents").hide();
+    $(".spinner2").show();
+    $("#song-table tbody").empty();
+    window.scrollTo(0,0);
+    disableSaveButton();
+    songTable.clear();
+    resetState();
+
+    curPlaylist = playlist;
+    curPlaylist.tracks.items = [];
+
+    $("#playlist-title").text(playlist.name);
+    $("#playlist-title").attr('href', playlist.uri);
+
+    info("");
+
+    fetchPlaylistTracks(playlist)
+    .then(function() {
+        saveState();
+        enableSaveButtonWhenNeeded();
+    })
+    .catch(function(msg) {
+        console.log('msg', msg);
+        error("Error while loading playlist: " + msg);
+    });
+}
+
+function smartOrder(items) {
+    // a smart ordering of the tracks
+    // smart ordering will try to equally distribute artists
+    let length = items.length;
+    let artist_counts = new Proxy({}, { get: (target, name) => name in target ? target[name] : 0 })
+    _.each(items, function(item, i) {
+        if (item.track) {
+            var track = item.track;
+            var artist = track.artists[0].name;
+            artist_counts[artist]++;
+        }
+    });
+
+    let artist_counts_so_far = new Proxy({}, { get: (target, name) => name in target ? target[name] : 0 })
+    let out = [];
+    let all_items = items.slice();
+
+    while (all_items.length > 0) {
+        let best_delta = 1000;
+        let best_item = all_items[0];
+        _.each(all_items, function(item, i) {
+            if (item.track) {
+                var track = item.track;
+                let artist = track.artists[0].name;
+                let desired_percentage = artist_counts[artist] / length;
+                let next_percentage = (artist_counts_so_far[artist] + 1) / (out.length + 1);
+                let delta_percentage = Math.abs(next_percentage - desired_percentage);
+                if (delta_percentage < best_delta) {
+                    best_delta = delta_percentage;
+                    best_item = item;
+                }
+            } else {
+                console.log("nope", item);
+            }
+        });
+        all_items = all_items.filter(item => item != best_item);
+        best_item.track.smart = out.length;
+        out.push(best_item);
+        artist_counts_so_far[best_item.track.artists[0].name] += 1;
+    }
+}
+
+function findDuplicates(playlist) {
+    var ids = {};
+    var dups = [];
+    _.each(playlist.tracks.items, function(item, i) {
+        if (item.track && item.track.id) {
+            var track = item.track.id;
+            if (id in ids) {
+                dups.push(id);
+            }
+            ids[id] = 1;
+        }
+    });
+    return dups;
+}
+
+function formatDuration(dur) {
+    var mins = Math.floor(dur / 60)
+    var secs = Math.floor(dur - mins * 60);
+    var ssecs = secs.toString();
+    if (secs < 10) {
+        ssecs = '0' + ssecs;
+    }
+    return mins + ":" + ssecs;
+}
+
+// 官方API不能使用
+// function fetchAudioFeatures(ids) {
+//     var cids = ids.join(',');
+//     var url = "https://api.spotify.com/v1/audio-features";
+//     return getSpotifyQ(url, { ids: cids});
+// }
+
+// 改用本地檔案
+function fetchAudioFeatures(ids) {
+    return loadFeaturesForCurrentPlaylist().then(function(featureMap) {
+        var results = ids.map(function(id) {
+            var f = featureMap[id];
+            if (!f) return null;
+            return {
+                id: id,
+                tempo: f.tempo,
+                energy: f.energy,
+                danceability: f.danceability,
+                valence: f.valence,
+                acousticness: f.acousticness,
+                instrumentalness: f.instrumentalness,
+                liveness: f.liveness,
+                loudness: f.loudness,
+                duration_ms: f.duration_ms
+            };
+        });
+        return results;
+    });
+}
+
+function fetchAlbums(ids) {
+    var cids = ids.join(',');
+    var url = "https://api.spotify.com/v1/albums";
+    return getSpotifyQ(url, { ids: cids});
+}
+
+function fetchAllAlbums(ids) {
+    var maxAlbumsPerCall = 20;
+    var qs = [];
+    for (var i = 0; i < ids.length; i += maxAlbumsPerCall) {
+        var aids = ids.slice(i, i + maxAlbumsPerCall);
+        qs.push(fetchAlbums(aids));
+    }
+    return Q.all(qs);
+}
+
+function clearTable() {
+    songTable.clear();
+}
+
+function updateTable(items) {
+    $("#single-playlist-contents").show();
+    _.each(items, function(item, i) {
+        if (item.track) {
+            var track = item.track;
+            track.rnd = Math.random() * 10000;
+            addTrack(songTable, track);
+        }
+    });
+    songTable.draw();
+    $(".spinner2").hide();
+}
+
+function addTrack(table,track) {
+    if (track && track.enInfo && 'tempo' in track.enInfo) {
+        var relDate = '';
+        if (track.album.id in albumDates) {
+            relDate = albumDates[track.album.id];
+        }
+        table.row.add([
+                track.which + 1, 
+                track.name, 
+                track.artists[0].name,
+                relDate,
+                Math.round(track.enInfo.tempo),
+                Math.round(track.enInfo.energy * 100),
+                Math.round(track.enInfo.danceability * 100),
+                Math.round(track.enInfo.loudness),
+                Math.round(track.enInfo.valence * 100),
+                formatDuration(Math.round(track.enInfo.duration_ms / 1000.0)),
+                Math.round(track.enInfo.acousticness * 100),
+                //Math.round(track.enInfo.song_hotttnesss * 100),
+                Math.round(track.popularity),
+                Math.round(track.smart),
+                Math.round(track.rnd),
+                track
+        ]);
+    } else {
+        table.row.add([
+                track.which + 1, 
+                track.name, 
+                track.artists[0].name,
+                '',
+                '',
+                '',
+                '',
+                '',
+                '',
+                '',
+                '',
+                '',
+                '',
+                '',
+                track
+        ]);
+    }
+}
+
+function fetchPlaylistTracks(playlist) {
+    let all_items = [];
+
+    function fetchLoop(url) {
+        var tracks;
+
+        return getSpotifyQ(url)
+        .then(function(data) {
+            var ids = [];
+            var aids = [];
+
+            tracks = data.tracks ? data.tracks : data;
+            _.each(tracks.items, function(item, i) {
+                all_items.push(item);
+                if (item.track) {
+                    item.track.which = curPlaylist.tracks.items.length;
+                    curPlaylist.tracks.items.push(item);
+                    if (!item.is_local) {
+                        if (item.track && item.track.id) {
+                            ids.push(item.track.id);
+                        }
+                        if (!(_.contains(aids, item.track.album.id))) {
+                            if (!(item.track.album.id in albumDates)) {
+                                aids.push(item.track.album.id);
+                            }
+                        }
+                    }
+                } else {
+                    console.log('no track at', i);
+                }
+            });
+            return Q.all([fetchAllAlbums(aids), fetchAudioFeatures(ids)]);
+        })
+        .then(function(results) {
+            var allAlbums = results[0];
+            var trackFeatures = results[1];
+
+            _.each(allAlbums, function(albums) {
+                _.each(albums.albums, function(album) {
+                    if (album != null && 'id' in album) {
+                        albumDates[album.id] = album.release_date;
+                    }
+                });
+            });
+            var fmap = {};
+            // beta apis are funny like this ...
+            if ('audio_attributes' in trackFeatures) {
+                trackFeatures = trackFeatures['audio_attributes']
+            }
+
+            if ('audio_features' in trackFeatures) {
+                trackFeatures = trackFeatures['audio_features']
+            }
+            _.each(trackFeatures, function(trackFeature, i) {
+                if (trackFeature && trackFeature.id) {
+                    fmap[trackFeature.id] = trackFeature;
+                }
+            });
+
+            _.each(tracks.items, function(item, i) {
+                if (item.track && item.track.id) {
+                    var tid = item.track.id;
+                    if (tid in fmap) {
+                        item.track.enInfo = fmap[tid];
+                    } else {
+                        item.track.enInfo = {};
+                    }
+                }
+            });
+            updateTable(tracks.items);
+
+            if (tracks.next) {
+                return fetchLoop(tracks.next);
+            } else {
+                console.log("tracks loaded");
+                smartOrder(all_items);
+                clearTable();
+                updateTable(all_items);
+            }
+        })
+    }
+
+
+    // Spotify API defect? specifying limit will actually return up to 100 items anyway.
+    var startUrl = "https://api.spotify.com/v1/users/" + playlist.owner.id +
+        "/playlists/" + playlist.id + "/tracks?limit=50";
+    return fetchLoop(startUrl);
+}
+
+function fetchPlaylists(uid, callback) {
+    $("#playlist-list tbody").empty();
+    $(".prompt").hide();
+    $(".spinner").show();
+
+    info("Getting your playlists");
+    var url = 'https://api.spotify.com/v1/users/' + uid + '/playlists';
+    var data = {
+        limit:50,
+        offset:0
+    }
+    getSpotify(url, data, callback);
+}
+
+function fetchCurrentUserProfile(callback) {
+    var url = 'https://api.spotify.com/v1/me';
+    getSpotify(url, null, callback);
+}
+
+function goodPlaylist(playlist) {
+    return playlist.tracks.total > 0; // && playlist.owner.id == curUserID;
+}
+
+function formatOwner(owner) {
+    if (owner.id == curUserID) {
+        return "";
+    } else {
+        // opportunity to fetch owner details here
+        return owner.id;
+    }
+}
+
+function playlistLoaded(playlists) {
+    var pl = $("#playlist-list tbody");
+    $(".prompt").show();
+    $(".spinner").hide();
+    if (playlists) {
+        info("");
+        _.each(playlists.items, function(playlist) {
+            if (goodPlaylist(playlist)) {
+                var tr = $("<tr>");
+                var tiny_image_url = get_tiny_image(playlist);
+                var imageCell = $("<td>");
+                if (tiny_image_url) {
+                    var image = $("<img>");
+                    image.attr("src", tiny_image_url);
+                    image.attr("width", "60px");
+                    imageCell.append(image)
+                }
+                tr.append(imageCell);
+
+                var tdName = $("<td>")
+
+                var aName = $("<a>")
+                    .text(playlist.name)
+                    .addClass('hoverable')
+                    .on('click', function() {
+                        fetchSinglePlaylist(playlist);
+                    });
+                tdName.append(aName);
+
+                var tdTrackCount = $("<td>").text(playlist.tracks.total);
+
+                var tdOwner = $("<td>").text(formatOwner(playlist.owner));
+
+                tr.append(tdName);
+                tr.append(tdTrackCount);
+                tr.append(tdOwner);
+
+                pl.append(tr);
+            }
+        });
+        if (playlists.next) {
+            getSpotify(playlists.next, null, playlistLoaded);
+        }
+    } else {
+        error("Sorry, I couldn't find your playlists");
+    }
+}
+
+function get_tiny_image(playlist) {
+    if (playlist.images) {
+        var len = playlist.images.length;
+        if (len > 0) {
+            return playlist.images[len - 1]['url'];
+        } else {
+            return null;
+        }
+    } else {
+        return null;
+    }
+}
+
+function loadPlaylists(uid) {
+    $("#playlists").show();
+    fetchPlaylists(uid, playlistLoaded);
+}
+
+function inRange(val, min, max) {
+    return ( ( isNaN(min) && isNaN(max) ) ||
+             ( isNaN(min) && val <= max ) ||
+             ( min <= val && isNaN(max) ) ||
+             ( min <= val && val <= max ) );
+}
+
+function playlistFilter( settings, data, dataIndex ) {
+    var minBpm = parseInt( $('#min-bpm').val(), 10 );
+    var maxBpm = parseInt( $('#max-bpm').val(), 10 );
+    var includeDouble = $('#include-double').is(':checked');
+    var bpm = parseFloat( data[4] ) || 0;
+
+    return inRange(bpm, minBpm, maxBpm) || 
+        (includeDouble && inRange(bpm*2, minBpm, maxBpm));
+}
+
+function playTrack(track) {
+    audio.attr('src', track.preview_url);
+    audio.get(0).play();
+}
+
+function stopTrack() {
+    audio.get(0).pause();
+}
+
+
+// ----------------------------------------------------------------------------
+// Playlist Saving
+// ----------------------------------------------------------------------------
+
+function getSortedUrisFromTable(tracks, table) {
+    // Possibly a defect in DataTables: rows() and rows().indexes() returns array in incorrect order
+    // Instead, use rows().data() and calculate index from track column.
+    return _.chain(table.rows({filter:'applied'}).data())
+        // Web API only doesn't support local files for now.
+        .select(function(rowdata) { return rowdata[14].uri.startsWith("spotify:track:"); } )
+        .map (function(rowdata) {return rowdata[14].uri;})
+        .value();
+}
+
+// (#save,#dropSave,#dropOverwrite).onclick
+function savePlaylist(playlist, createNewPlaylist) {
+    var tids = getSortedUrisFromTable(playlist.tracks.items, songTable);
+
+    if (tids.length <= 0) {
+        error("Cannot save the playlist because there are no tracks left after filtering");
+        return;
+    }
+
+    disableSaveButton();
+    showSaveSpinner(true);
+
+    createOrReusePlaylist(playlist, createNewPlaylist)
+    .then(function(playlistToModify) {
+        return saveTidsToPlaylist(playlistToModify, tids, true);
+    })
+    .then(function() {
+        saveState();
+    })
+    .catch(function(msg) {
+        error(msg);
+    })
+    .finally(function() {
+        showSaveSpinner(false);
+        enableSaveButtonWhenNeeded();
+        error("");
+    })
+}
+
+function saveTidsToPlaylist(playlist, tids, replace) {
+    var sliceLength = 100;
+    var this_tids = tids.slice(0, sliceLength);
+    var remaining = tids.slice(sliceLength);
+    var url = "https://api.spotify.com/v1/playlists/" + playlist.id + '/tracks';
+    var type;
+    var json;
+
+    if (replace) {
+        type = 'PUT';
+        json = { 'uris': this_tids };
+    } else {
+        type = 'POST';
+        json = this_tids;
+    }
+
+    return callSpotifyQ(type, url, json)
+    .then(function() {
+        if (remaining.length > 0) {
+            return saveTidsToPlaylist(playlist, remaining, false);
+        } 
+    })
+    .catch(function() {
+        console.log("reject");
+        return Q.reject("Trouble saving tracks to the playlist");
+    });
+}
+
+function createPlaylist(owner, name, isPublic) {
+    var url = "https://api.spotify.com/v1/users/" + owner + "/playlists";
+    var json = { name: name, 'public': isPublic };
+    return callSpotifyQ('POST', url, json)
+    .catch(function() {
+        return Q.reject("Cannot create the new playlist");
+    });
+}
+
+function createOrReusePlaylist(playlist, createNewPlaylist) {
+    if (createNewPlaylist) {
+        var sortName = getCurSortName();
+        return createPlaylist(curUserID, playlist.name + " ordered by " + sortName, playlist.public);
+    } else {
+        return Q(playlist);
+    }
+}
+
+
+// ----------------------------------------------------------------------------
+// Saved playlist state tracking
+// ----------------------------------------------------------------------------
+
+function resetState() {
+    songTable.order([0, 'asc']);
+
+    $('#min-bpm').val("");
+    $('#max-bpm').val("");
+    $('#include-double').prop('checked', true);
+
+    saveState();
+}
+
+// we keep track of which column we last sorted on so we
+// can enable or disable the save button as appropriate
+function getPlaylistState() {
+    var firstOrder = [];
+    var selectedTableOrder = songTable.order();
+    if (selectedTableOrder.length >= 1) {
+        firstOrder = _.clone(selectedTableOrder[0]); // object is reused by datatable!
+    }
+
+    return { 
+        minBpm: parseInt( $('#min-bpm').val(), 10 ),
+        maxBpm: parseInt( $('#max-bpm').val(), 10 ),
+        includeDouble: $('#include-double').is(':checked'),
+        order: firstOrder,
+    };
+}
+
+function saveState() {
+    savedState = getPlaylistState();
+}
+
+function isSavable() {
+    return !_.isEqual(savedState, getPlaylistState());
+}
+
+function setNeedsSave(state) {
+    if (state) {
+        $("#save,#saveDropdown").attr('disabled', false);
+        $("#save,#saveDropdown").removeClass('btn-warning');
+        $("#save,#saveDropdown").addClass('btn-primary');
+    } else {
+        $("#save,#saveDropdown").attr('disabled', true);
+        $("#save,#saveDropdown").addClass('btn-warning');
+        $("#save,#saveDropdown").removeClass('btn-primary');
+    }
+}
+
+function updateSaveButtonState() {
+    setNeedsSave(!forceDisableSave && isSavable());
+}
+
+function disableSaveButton() {
+    forceDisableSave = true;
+    updateSaveButtonState();
+}
+
+function enableSaveButtonWhenNeeded() {
+    forceDisableSave = false;
+    updateSaveButtonState();
+}
+
+function showSaveSpinner(showSpinner) {
+    if (showSpinner) {
+        $('#save').addClass('active');
+    } else {
+        $('#save').removeClass('active');
+    }
+}
+
+function initTable() {
+    var table = $("#song-table").DataTable( {
+            paging: false,
+            searching: true,  // searching must be enabled for filtering to work
+            // scrollY:'300px',
+            info:false,
+            dom:"t", // only show table (exclude search bar)
+            columnDefs: [
+                { type : "time-uni", targets:9},
+            ]
+     });
+
+    table.on('order.dt', function() {
+        updateSaveButtonState();
+    });
+
+    $("#song-table tbody").on( 'click', 'tr', function () {
+        if ( $(this).hasClass('selected') ) {
+            $(this).removeClass('selected');
+            var row = songTable.row( $(this) );
+            stopTrack();
+        } else {
+            table.$('tr.selected').removeClass('selected');
+            $(this).addClass('selected');
+            var row = songTable.row( $(this) );
+            var rowData = row.data();
+            var track = rowData[rowData.length - 1];
+            playTrack(track);
+        }
+    } );
+    return table;
+}
+
+handleSpotifyRedirect();
+
+$(document).ready(
+
+    function() {
+        songTable = initTable();
+        var args = parseArgs();
+
+
+        if ('error' in args) {
+            error("Sorry, I can't read your playlists from Spotify without authorization");
+            $("#go").show();
+            $("#go").on('click', function() {
+                authorizeUser();
+            });
+        } else if ('access_token' in args) {
+            accessToken = args['access_token'];
+            $(".worker").hide();
+            fetchCurrentUserProfile(function(user) {
+                if (user) {
+                    curUserID = user.id;
+                    $("#who").text(user.id);
+                    loadPlaylists(user.id);
+                } else {
+                    error("Trouble getting the user profile");
+                }
+            });
+        } else {
+            $("#go").show();
+            $("#go").on('click', function() {
+                authorizeUser();
+            });
+        }
+
+        $("#save,#dropSave").on('click', function() {
+            info("saving ...")
+            savePlaylist(curPlaylist, true);
+        });
+        $("#dropOverwrite").on('click', function() {
+            info("overwriting ...")
+            savePlaylist(curPlaylist, false);
+        });
+
+        $("#pick").on('click', function() {
+            showPlaylists();
+        });
+
+        $.fn.dataTable.ext.search.push(playlistFilter);
+        $('#min-bpm,#max-bpm,#include-double').on('keyup change', function() {
+            songTable.draw();
+            updateSaveButtonState();
+        });
+    }
+);
+
+</script>
+
+<div style="margin: 16px 0;">
+  <a href="https://exportify.net/" target="_blank"
+     style="display:inline-block; padding:10px 16px; background:#1DB954; 
+            color:white; border-radius:6px; text-decoration:none; font-weight:bold;">
+    🎵  前往 Exportify 下載 Spotify CSV
+  </a>
+  <span style="margin-left: 8px; color:#333;"></span>
+</div>
+
+<!-- 後台生成 feature.json 的上傳區塊 -->
+<div id="csv-uploader" style="padding:16px;margin-bottom:20px;border:1px solid #ccc;">
+  <h3>匯入 CSV → 自動產生 feature.json</h3>
+
+  <input type="file" id="csvFileInput" accept=".csv">
+  <button id="csvUploadBtn">產生 feature.json</button>
+
+  <div id="uploadStatus" style="margin-top:10px;color:green;"></div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const uploadBtn = document.getElementById("csvUploadBtn");
+    const fileInput = document.getElementById("csvFileInput");
+    const statusBox = document.getElementById("uploadStatus");
+
+    uploadBtn.onclick = function () {
+        const file = fileInput.files[0];
+        if (!file) {
+            alert("請先選擇 CSV 檔！");
+            return;
+        }
+
+        const formData = new FormData();
+        formData.append("csv_file", file);
+
+        fetch("/upload_feature", {
+            method: "POST",
+            body: formData
+        })
+        .then(res => res.json())
+        .then(data => {
+            if (data.status === "success") {
+                // ✔ 顯示彈窗
+                alert(`成功產生 feature.json！共 ${data.tracks} 筆`);
+
+                // ✔ 可選：在畫面上顯示成功訊息
+                statusBox.textContent = `成功產生：${data.json_file}（${data.tracks} 筆）`;
+            } else {
+                alert("發生錯誤：" + JSON.stringify(data));
+            }
+        })
+        .catch(err => {
+            console.error("Upload error:", err);
+            alert("上傳失敗，請查看 console log");
+        });
+    };
+});
+</script>
+
+</body>
+</html>
