@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.pyc
+
+# macOS
+.DS_Store
+
+# Virtual env
+venv/
+env/
+.venv/
+
+# Feature output (不一定要丟 git，看你需不需要)
+static/database/feature/*.json
+
+# vscode / idea
+.vscode/
+.idea/
+
+# Docker 無用資料
+*~ 
