@@ -522,7 +522,8 @@ function loadFeaturesForCurrentPlaylist() {
         return featureCachePromise[currentFeatureKey];
     }
 
-    var url = 'database/feature/' + currentFeatureKey + '.json';
+    # 特殊字元轉換成URI格式
+    var url = 'database/feature/' + encodeURIComponent(currentFeatureKey) + '.json';
 
     featureCachePromise[currentFeatureKey] = Q.Promise(function(resolve) {
         $.getJSON(url)
@@ -543,7 +544,11 @@ function loadFeaturesForCurrentPlaylist() {
 
 function slugifyName(name) {
     // 只把半形空格換成底線，其它字都保留
-    return name.replace(/[\u0020\u3000]/g, '_');
+    return name
+        .replace(/[\u0000-\u001f]/g, '') // ← 移除所有控制字符
+        .replace(/[\u0020\u3000]+/g, '_')
+        .replace(/_+/g, '_')
+        .trim();
 }
 
 function fetchSinglePlaylist(playlist) {
